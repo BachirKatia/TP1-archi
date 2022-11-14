@@ -26,20 +26,29 @@ public class LancerApp1 {
 		// affiche la fenêtre
 		laFenetre.setVisible(true);
 		
-		// les trains de cercles avec image et en couleur
-		TrainCercle[] lesTrains= new TrainCercle[10];
-		lesTrains[0] = new TrainCercleImage(d, 10, imgVador);d.ajouterObjet(lesTrains[0]);
-		lesTrains[1] = new TrainCercleImage(d, 10, imgLeila); d.ajouterObjet(lesTrains[1]);
-		for (int i = 2; i < 10; i++) {
-			lesTrains[i] = new TrainCercleCouleur(new Color((float) Math.random(), (float) Math.random(),
-		(float) Math.random()), d, 10, 10);
-		d.ajouterObjet(lesTrains[i]);
-		}
-		
+		// les trains de cercles avec image et en couleur de  mouvement aléatoire
+				TrainCercle[] lesTrains= new TrainCercle[5];
+				lesTrains[0] = new TrainCercleImage(d, 10, imgVador);d.ajouterObjet(lesTrains[0]);
+				lesTrains[1] = new TrainCercleImage(d, 10, imgLeila); d.ajouterObjet(lesTrains[1]);
+				for (int i = 2; i < 5; i++) {
+					lesTrains[i] = new TrainCercleCouleur(new Color((float) Math.random(), (float) Math.random(),
+				(float) Math.random()), d, 10, 10);
+				d.ajouterObjet(lesTrains[i]);
+				}
+		// un objet visage mouvement aléatoire 
 		Visage v = new Visage(d); d.ajouterObjet(v); 
-		Forme f1 =new Etoile(350,100,50,8.f,Color.RED,Color.RED);
-		Forme f2 =new PolygoneRegulier(5,260,60,60,4.0f,Color.BLACK, null);
-		d.ajouterObjet(f1);d.ajouterObjet(f2);
+		
+	
+		
+		// les objets formes graphique mouvement circulaire
+		d.ajouterObjet(new AnimationForme(new Etoile(350,100,50,8.f,Color.RED,Color.YELLOW), new MvtCirculaire(250,250,180,0,5)));
+		d.ajouterObjet(new AnimationForme(new PolygoneRegulier(5,240,40,40,4.0f,Color.DARK_GRAY, null), new MvtCirculaire(210,210,180,0,5)));
+		// les objets formes graphique fixe
+		d.ajouterObjet(new Etoile(100,100,50,8.f,Color.GREEN,Color.GREEN));
+		d.ajouterObjet(new PolygoneRegulier(5,150,30,30,4.0f,Color.BLACK, Color.BLACK));
+		
+		
+		
 		while(true) {
 		// la zone de dessin se réaffiche
 		d.repaint();
