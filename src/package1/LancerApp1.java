@@ -35,14 +35,16 @@ public class LancerApp1 {
 				(float) Math.random()), d, 10, 10);
 				d.ajouterObjet(lesTrains[i]);
 				}
-		// un objet visage mouvement aléatoire 
-		Visage v = new Visage(d); d.ajouterObjet(v); 
+	
 		
 	
 		
 		// les objets formes graphique mouvement circulaire
 		d.ajouterObjet(new AnimationForme(new Etoile(350,100,50,8.f,Color.RED,Color.YELLOW), new MvtCirculaire(250,250,180,0,5)));
 		d.ajouterObjet(new AnimationForme(new PolygoneRegulier(5,240,40,40,4.0f,Color.DARK_GRAY, null), new MvtCirculaire(210,210,180,0,5)));
+		
+		// un objet visage mouvement circulaire 
+		d.ajouterObjet(new AnimationForme(new Visage(d,300,500,40,60), new MvtCirculaire(210,210,180,0,5)));
 		
 		// les objets formes graphique fixe
 		d.ajouterObjet(new Etoile(100,100,50,8.f,Color.GREEN,Color.GREEN));
